@@ -1,30 +1,21 @@
-
+import {BrowserRouter as Router,Route} from'react-router-dom';
 import Todos from './components/Todos';
 import React, { Component } from 'react';
-
+//import uuid from 'uuid';
 import './App.css';
 import Header from './components/layout/Header';
 import Add from './components/Add';
+import About from './components/pages/About';
+import axios from 'axios';
+
 
 class App extends Component {
   state = {
-    todos : [
-      {
-        id:1,
-        title : 'Take out trash',
-        completed : false 
-      },
-      {
-        id:2,
-        title : 'dinner with wife',
-        completed : true 
-      },
-      {
-        id:3,
-        title : 'meeting with boss',
-        completed : false 
-      },
-    ]
+    todos : []
+  }
+  componentDidMount(){
+    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+    .then(res => this.setState({todos:res.data}))
   }
   markComplete = (id) =>{
     this.setState({todos: this.state.todos.map(todo =>{
@@ -35,18 +26,39 @@ class App extends Component {
     })});
   }
   deleteTodo=(id) =>{
-    this.setState({todos : [...this.state.todos.filter(todo =>todo.id !== id)]});
+
+    axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+    .then(res => this.setState({todos : [...this.state.todos.filter(todo =>todo.id !== id)]}));
+  }
+    
+  addTodo = (title) => {
+    axios.post('https://jsonplaceholder.typicode.com/todos',
+    {
+      title,
+      completed:false
+    })
+    .then(res => this.setState({todos:
+      [...this.state.todos, res.data]}));
+  
   }
   render(){
   console.log(this.state.todos)
   return (
+    <Router>
     <div className="App">
      <div className="container">
       <Header />
-      <Add />
+      <Route exact path="/" render={props => (
+        <React.Fragment>
+          <Add addTodo={this.addTodo}/>
       <Todos todos={this.state.todos} markComplete={this.markComplete} deleteTodo ={this.deleteTodo}/>
+      
+        </React.Fragment>
+      )} />
+      <Route path="/about" component={About}/>
       </div>
     </div>
+    </Router>
   );
 }
 }
