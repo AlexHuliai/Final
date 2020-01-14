@@ -2,21 +2,22 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 class Signup extends Component {
     state ={
-        student :{
+        user :{
             firstName:'',
             lastName:'',
             age:'',
             email:'',
             telephone:'',
-            password:''
+            password:'',
+            zipcode:''
             
 
         }
     }
     submitHandler =(event) =>{
         event.preventDefault();
-        console.log(this.state.student);
-        Axios.post('http://localhost:8080/submitUserDetails', this.state.student)
+        console.log(this.state.user);
+        Axios.post('http://localhost:8080/submitUserDetails', this.state.user)
         .then(response =>{
           this.props.history.push('/thank-you');
 
@@ -24,15 +25,17 @@ class Signup extends Component {
 
         }
         )
+        console.log(this.state.user);
+
     }
 
     handleChange =(event) =>{
             const value = event.target.value;
             const name = event.target.name;
-            const tempStudent = {...this.state.student};
-            tempStudent[name] = value;
+            const tempUser = {...this.state.user};
+            tempUser[name] = value;
             this.setState({
-            student:tempStudent
+            user:tempUser
             })
     }
     render() {
@@ -42,26 +45,29 @@ class Signup extends Component {
                     <h2>Sign Up Here:</h2>
   <div className="row mb-1">
     <div className="col">
-      <input type="text" onChange={this.handleChange} value={this.state.student.firstName} name="firstName" className="form-control" placeholder="First Name"/>
+      <input type="text" onChange={this.handleChange} value={this.state.user.firstName} name="firstName" className="form-control" placeholder="First Name"/>
     </div>
     <div className="col">
-      <input type="text" onChange={this.handleChange} value={this.state.student.lastName}  name="lastName" className="form-control" placeholder="Last Name"/>
+      <input type="text" onChange={this.handleChange} value={this.state.user.lastName}  name="lastName" className="form-control" placeholder="Last Name"/>
     </div>
   </div>
   <div className="row mb-1">
   <div className="col">
-      <input type="text" onChange={this.handleChange} value={this.state.student.age}  name="age" className="form-control" placeholder="Age"/>
+      <input type="text" onChange={this.handleChange} value={this.state.user.age}  name="age" className="form-control" placeholder="Age"/>
     </div>
     <div className="col">
-      <input type="text" onChange={this.handleChange} value={this.state.student.telephone}  name="telephone" className="form-control" placeholder="Telephone"/>
+      <input type="text" onChange={this.handleChange} value={this.state.user.telephone}  name="telephone" className="form-control" placeholder="Telephone"/>
     </div>
     </div>
     <div className="row mb-1">
     <div className="col">
-      <input type="text" onChange={this.handleChange} value={this.state.student.email}  name="email" className="form-control" placeholder="Email"/>
+      <input type="text" onChange={this.handleChange} value={this.state.user.email}  name="email" className="form-control" placeholder="Email"/>
     </div>
     <div className="col">
-      <input type="password" onChange={this.handleChange} value={this.state.student.password}  name="password" className="form-control" placeholder="Password"/>
+      <input type="password" onChange={this.handleChange} value={this.state.user.password}  name="password" className="form-control" placeholder="Password"/>
+    </div>
+    <div className="col">
+      <input type="text" onChange={this.handleChange} value={this.state.user.zipcode}  name="zipcode" className="form-control" placeholder="ZipCode"/>
     </div>
     
     </div>

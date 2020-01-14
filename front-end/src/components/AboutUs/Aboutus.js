@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import pic1 from '../../images/pic1.jpg';
 import pic2 from '../../images/pic2.jpg';
+
+
 class Aboutus extends Component {
     render() {
         return (

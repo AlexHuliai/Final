@@ -6,6 +6,7 @@ import Thankyou from '../ThankYou/Thankyou';
 import Aboutus from '../AboutUs/Aboutus';
 import {Route, withRouter} from 'react-router-dom';
 import Home from '../Home/Home';
+import Map from '../Maps/Maps';
 
 class Layout extends Component {
     render() {
@@ -21,7 +22,7 @@ class Layout extends Component {
                     <React.Fragment>
                              <Route path="/home" component={Home}/>
                              <Route exact path="/" component={Home}/>
-
+                             <Route component={Map}/>
                     </React.Fragment>
                 )
         }

@@ -23,6 +23,8 @@ public class UserController {
 
         this.userRepository.save(user);
 
+        System.out.println(user.toString());
+
 
     }
     @RequestMapping(value="/findUserByEmail",produces=MediaType.APPLICATION_JSON_VALUE,method= RequestMethod.GET)

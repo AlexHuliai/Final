@@ -26,6 +26,15 @@ public class User {
     private String telephone;
     @Column(name = "password")
     private String password;
+    @Column(name="zipcode")
+    private int zipcode;
+    public void setZipcode(int zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public int getZipcode() {
+        return zipcode;
+    }
 
     public String getPassword() {
         return password;
@@ -73,5 +82,18 @@ public class User {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", telephone='" + telephone + '\'' +
+                ", password='" + password + '\'' +
+                ", zipcode=" + zipcode +
+                '}';
     }
 }

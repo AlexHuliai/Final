@@ -12,7 +12,7 @@ class Home extends Component {
         const params = {
             email: loggedInUserEmail
         }
-        Axios.get("http://localhost:8080/findStudentByEmail",{params})
+        Axios.get("http://localhost:8080/findUserByEmail",{params})
         .then (response =>{
             this.setState({
                 student: response.data

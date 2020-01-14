@@ -4,7 +4,7 @@ import  Axios  from 'axios';
 
 class Header extends Component {
     state = {
-        student:{
+        user:{
             email:'',
             password:''
         }  
@@ -16,15 +16,15 @@ class Header extends Component {
     handleChange = (event)=>{
         const value = event.target.value;
         const name = event.target.name;
-        const tempStudent = {...this.state.student};
-        tempStudent[name] = value;
+        const tempUser = {...this.state.user};
+        tempUser[name] = value;
         this.setState({
-            student:tempStudent
+            user:tempUser
         })
     }
    submitHandler = (event)=>{
        event.preventDefault();
-       Axios.post('http://localhost:8080/login',this.state.student)
+       Axios.post('http://localhost:8080/login',this.state.user)
        .then(response => {
            localStorage.setItem("loggedInUser", response.data.email);
 
@@ -56,7 +56,7 @@ class Header extends Component {
         return (
             <div className="margin-bottom-80px">
                 <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                    <Link className="navbar-brand" to="/">Student Portal</Link>
+                    <Link className="navbar-brand" to="/">Users Portal</Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
