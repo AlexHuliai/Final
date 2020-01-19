@@ -8,6 +8,7 @@ import {Route, withRouter} from 'react-router-dom';
 import Home from '../Home/Home';
 import Map from '../Maps/Maps';
 
+
 class Layout extends Component {
     render() {
         let routes = (
@@ -23,6 +24,7 @@ class Layout extends Component {
                              <Route path="/home" component={Home}/>
                              <Route exact path="/" component={Home}/>
                              <Route component={Map}/>
+                             
                     </React.Fragment>
                 )
         }

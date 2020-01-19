@@ -2,6 +2,7 @@ package com.running.controller;
 
 import com.running.entity.User;
 import com.running.repository.UserRepository;
+import com.running.service.SendMail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,11 +23,18 @@ public class UserController {
     public void submitUserDetails(@RequestBody User user) {
 
         this.userRepository.save(user);
+        sendMail.sendEmail(user.getEmail(),"Thank You!", "Thanks a lot for signing in on my application.Happy exercisizing!");
 
-        System.out.println(user.toString());
+
+
+
 
 
     }
+
+
+    @Autowired
+    private SendMail sendMail;
     @RequestMapping(value="/findUserByEmail",produces=MediaType.APPLICATION_JSON_VALUE,method= RequestMethod.GET)
     @ResponseBody
     private ResponseEntity<Optional<User>> findUserByEmail( String email){
@@ -56,6 +64,8 @@ public class UserController {
         List<User> users = this.userRepository.findAll();
         return new ResponseEntity<List<User>> (users,HttpStatus.OK);
     }
+
+
 
 
 }
