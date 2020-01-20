@@ -23,6 +23,10 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+#map{
+  height:400px;
+  width:100%;
+}
 
 .App-link {
   color: #61dafb;

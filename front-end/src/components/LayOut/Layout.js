@@ -6,7 +6,7 @@ import Thankyou from '../ThankYou/Thankyou';
 import Aboutus from '../AboutUs/Aboutus';
 import {Route, withRouter} from 'react-router-dom';
 import Home from '../Home/Home';
-import Map from '../Maps/Maps';
+import Maps from '../Maps/Maps';
 
 
 class Layout extends Component {
@@ -16,6 +16,7 @@ class Layout extends Component {
                 <Route exact path="/" component={Signup} />
                 <Route path="/sign-up" component={Signup}/>
                 <Route path="/thank-you" component={Thankyou}/>
+                {/* <Route component={Map}/> */}
             </React.Fragment>
         );
         if(localStorage.getItem("loggedInUser")){
@@ -23,7 +24,9 @@ class Layout extends Component {
                     <React.Fragment>
                              <Route path="/home" component={Home}/>
                              <Route exact path="/" component={Home}/>
-                             {/* <Route component={Map}/> */}
+                             
+                             
+                            
                              
                     </React.Fragment>
                 )
@@ -33,6 +36,8 @@ class Layout extends Component {
                 <Header {...this.props}/>
                 {routes}
                 <Route path="/about-us" component={Aboutus}/>
+                <Maps/>
+                 
                 
                
                 

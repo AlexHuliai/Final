@@ -1,21 +1,41 @@
-import React from 'react';
-import {GoogleMap,withScriptjs,withGoogleMap} from "react-google-maps";
+import React, { Component } from 'react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
+class Maps extends Component {
+  constructor(props) {
+    super(props);
 
-// function Map() {
-//     return (<GoogleMap defaultZoom={10}
-//      defaultCenter={{lat:38.631653,lng: -90.201729}}/>
-     
-//     );
-// }
-// const WrappedMap=withScriptjs(withGoogleMap(Map));
-// export default function App(){
-//     return  <div style={{ width: "40vw", height: "40vh" }}>
-//     <WrappedMap
-//       googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyBlpDEM1hWvFmFHgWmTp6F1qRjLLIx9yi8`}
-//       loadingElement={<div style={{ height: `100%` }} />}
-//       containerElement={<div style={{ height: `100%` }} />}
-//       mapElement={<div style={{ height: `100%` }} />}
-//     />
-//   </div>
-// }
+    this.state = {
+      events: []
+    }
+  }
+  
+  displayMarkers = () => {
+    return this.state.events.map((events, index) => {
+      return <Marker key={index} id={index} position={{
+       lat: events.latitude,
+       lng: events.longitude
+     }}
+     onClick={() => '<h1>Hello</h1>'} />
+    })
+  }
+  render() {
+    return (
+      <Map 
+          google={this.props.google}
+          zoom={11}
+          style={mapStyles}
+          initialCenter={{ lat: 38.6330954, lng: -90.1994}}>
+          {this.displayMarkers()}
+        </Map>
+    );
+  }
+}
+const mapStyles = {
+  width: '100%',
+  height: '100%',
+};
+export default GoogleApiWrapper({
+  apiKey:'AIzaSyBlpDEM1hWvFmFHgWmTp6F1qRjLLIx9yi8'
+
+})(Maps);
