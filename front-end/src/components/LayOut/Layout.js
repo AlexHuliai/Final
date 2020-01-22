@@ -7,6 +7,7 @@ import Aboutus from '../AboutUs/Aboutus';
 import {Route, withRouter} from 'react-router-dom';
 import Home from '../Home/Home';
 import Maps from '../Maps/Maps';
+import Event from '../Event/Event';
 
 
 class Layout extends Component {
@@ -16,6 +17,7 @@ class Layout extends Component {
                 <Route exact path="/" component={Signup} />
                 <Route path="/sign-up" component={Signup}/>
                 <Route path="/thank-you" component={Thankyou}/>
+                
                 {/* <Route component={Map}/> */}
             </React.Fragment>
         );
@@ -24,6 +26,7 @@ class Layout extends Component {
                     <React.Fragment>
                              <Route path="/home" component={Home}/>
                              <Route exact path="/" component={Home}/>
+                             <Route  component={Event}/>
                              
                              
                             
@@ -36,6 +39,7 @@ class Layout extends Component {
                 <Header {...this.props}/>
                 {routes}
                 <Route path="/about-us" component={Aboutus}/>
+         
                 <Maps/>
                  
                 

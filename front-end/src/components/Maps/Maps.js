@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
-
+import Geocode from "react-geocode";
 class Maps extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +9,7 @@ class Maps extends Component {
       events: []
     }
   }
-  
+   
   displayMarkers = () => {
     return this.state.events.map((events, index) => {
       return <Marker key={index} id={index} position={{
