@@ -98,12 +98,11 @@ pageEncoding="UTF-8"%>
           <div class="span9">
             <h4>
             <c:if test="${not emptyloggedInUser.email}">
-            <button type="button" class="btn btn-primary btn-rounded" data-toggle="modal" data-target="#addImages">
-<i class="fas fa-plus"> Upload Images</i> 
-</button>
+          <a href="/eventform" methods="GET">
+Post New Event</a>
 </c:if>
             </h4>
-                <p class="text-info"><small>${msg} ${sucess}</small></p>
+                <p class="text-info"><small>${msg} ${sucess} ${event}</small></p>
                 <ul class="nav nav-tabs bold">
                   <li class="active"><a href="#one" data-toggle="tab">
                   <i class="icon-info-sign"></i> Contact Info</a></li>
@@ -183,43 +182,7 @@ Add Image</a>
               </div>
             </div>
                   
-  <div id="addImages" class="modal styled hide fade" tabindex="-1" role="dialog" aria-labelledby="mySignupModalLabel" aria-hidden="true">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="text-center" id="mySignupModalLabel">Add <strong>Pictures</strong></h4>
-              </div>
-              <div class="modal-body">                 
-                 <form enctype="multipart/form-data" action="uploadMultipleFiles" method="POST" class="form-horizontal">
-              <div class="control-group">
-                    <div class="controls">
-                    <label>Please select:</label>
-                    <input id="fileInput" type="file" id="one" name="uploadingFiles" multiple required>
-                    </div>
-                    <div class="controls">
-                    <label>Please select:</label>
-                    <input id="fileInput" type="file" id="two" name="uploadingFiles" multiple>
-                    </div>
-                    <div class="controls">
-                    <label>Please select:</label>
-                    <input id="fileInput" type="file" id="three" name="uploadingFiles" multiple>
-                    </div>
-                    <div class="controls">
-                    <label>Please select:</label>
-                    <input id="fileInput" type="file" id="four" name="uploadingFiles" multiple>
-                    </div>
-                    <div class="controls">
-                    <label>Please select:</label>
-                    <input id="fileInput" type="file" id="five" name="uploadingFiles" multiple>
-                    <input type="hidden" name="id" value="${loggedInUser.id}">
-                    </div>
-                    </div>
-                  
-                  <div class="control-group">
-                    <div class="controls">
-                      <button type="submit" class="btn">Upload</button>
-                    </div>
-                  </div>
-                </form>
+
               </div>
             </div>
             
