@@ -34,30 +34,11 @@ pageEncoding="ISO-8859-1"%>
   <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png" />
   <link rel="shortcut icon" href="ico/favicon.png" />
 
-  <!-- =======================================================
-    Theme Name: Flattern
-    Theme URL: https://bootstrapmade.com/flattern-multipurpose-bootstrap-template/
-    Author: BootstrapMade.com
-    Author URL: https://bootstrapmade.com
-  ======================================================= -->
+
 </head>
 
 <body>
-  <div id="wrapper">
-    <!-- toggle top area -->
-    <div class="hidden-top">
-      <div class="hidden-top-inner container">
-        <div class="row">
-          <div class="span12">
-            <ul>
-              <li><strong>We are available for any custom works this month</strong></li>
-              <li>Main office: Springville center X264, Park Ave S.01</li>
-              <li>Call us <i class="icon-phone"></i> (123) 456-7890 - (123) 555-7891</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+
     <!-- end toggle top area -->
     <!-- start header -->
     <jsp:include page="header.jsp"></jsp:include>
@@ -84,7 +65,7 @@ pageEncoding="ISO-8859-1"%>
                   <p>
                     Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
                   </p>
-                  <a href="#" class="btn btn-theme">Read More</a>
+                  <a href="#" class="btn btn-green">Read More</a>
                 </div>
               </div>
               <!-- Slide #2 caption -->
@@ -94,7 +75,7 @@ pageEncoding="ISO-8859-1"%>
                   <p>
                     Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
                   </p>
-                  <a href="#" class="btn btn-theme">Read More</a>
+                  <a href="#" class="btn btn-green">Read More</a>
                 </div>
               </div>
               <!-- Slide #3 caption -->
@@ -104,7 +85,7 @@ pageEncoding="ISO-8859-1"%>
                   <p>
                     Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
                   </p>
-                  <a href="#" class="btn btn-theme">Read More</a>
+                  <a href="#" class="btn btn-green">Read More</a>
                 </div>
               </div>
             </div>
@@ -179,7 +160,7 @@ pageEncoding="ISO-8859-1"%>
               <div class="span3">
                 <div class="box aligncenter">
                   <div class="aligncenter icon">
-                    <i class="icon-coffee icon-circled icon-64 active"></i>
+                    <i class="icon-coffee icon-green icon-circled icon-64 active"></i>
                   </div>
                   <div class="text">
                     <h6>Sit and enjoy</h6>

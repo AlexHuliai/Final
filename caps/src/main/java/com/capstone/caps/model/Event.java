@@ -19,6 +19,16 @@ public class Event {
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name="event_id")
     private long event_id;
+    @Column(name="user_id")
+    private long user_id;
+
+    public void setUser_id(long user_id) {
+        this.user_id = user_id;
+    }
+
+    public long getUser_id() {
+        return user_id;
+    }
 
     public void setStreet(String street) {
         this.street = street;
@@ -66,5 +76,8 @@ public class Event {
 
     public long getEvent_id() {
         return event_id;
+    }
+
+    public Event() {
     }
 }

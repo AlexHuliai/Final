@@ -76,15 +76,25 @@ public class AppController {
 		return "services";
 	}
 
-	@PostMapping("createevent")
-	public String createevent(@ModelAttribute Event event,Model model) {
+	@PostMapping("eventform")
+	public String createevent(@ModelAttribute("event") Event event, Model model, BindingResult result, RedirectAttributes redirect) {
+
+//		if (result.hasErrors()) {
+//			model.addAttribute("event", "Good");
+//
+//			return "eventform";
+//		}
+//		event.setUser_id(user.getId());
 		eventRepository.save(event);
-		model.addAttribute("event","Event was succesfully created , thanks a lot!");
-		return "profile";
+		System.out.println("***********" + event + "*************");
+//		redirect.addFlashAttribute("success", "User "+user.getFname()+" saved");
+
+		return "eventform";
 	}
 	@GetMapping("eventform")
-	public String eventform(Event event){
-
+	public String eventform(Model model){
+		model.addAttribute("event",new Event());
+		model.addAttribute("loggedInUser", new User());
 		return "eventform";
 	}
 }
