@@ -49,9 +49,9 @@
       <div id="nivo-slider">
         <div class="nivo-slider">
           <!-- Slide #1 image -->
-          <img src="static/img/slides/nivo/bg-1.jpg"  alt="" title="#caption-1" />
+          <img src="static/img/slides/nivo/bg-1.jpg" style="height: 500px" alt="" title="#caption-1" />
           <!-- Slide #2 image -->
-          <img src="static/img/slides/nivo/bg-2.jpg" alt="" title="#caption-2" />
+          <img src="static/img/slides/nivo/bg-2.jpg" style="height: 500px" alt="" title="#caption-2" />
 <%--          <!-- Slide #3 image -->--%>
 <%--          <img src="static/img/slides/nivo/bg-3.jpg" alt="" title="#caption-3" />--%>
         </div>

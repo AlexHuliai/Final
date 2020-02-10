@@ -25,6 +25,9 @@
           <a href="#" class="toggle-link"  title="Click me you'll get a surprise" data-target=".hidden-top"><i></i>Open</a>
         </div>
         <!-- end toggle link -->
+        <h2>
+        ${msg1}
+        </h2>
         <div class="row nomargin">
           <div class="span12">
             <div class="headnav">
@@ -32,10 +35,12 @@
               <c:choose>
 			  <c:when test="${empty loggedInUser}">			  
               <li><a href="register" style="color: #0061ff " ><i class="icon-user"></i>Sign Up</a></li>
+                <li><a href="#reset2" data-dismiss="modal" aria-hidden="true" data-toggle="modal" style="color: #0061ff " ><i class="icon-lock"></i>Reset Password</a></li>
+
               
               <!-- <li><a href="#mySignup" data-toggle="modal"><i class="icon-user"></i>Sign Up</a></li>
                -->
-               <li><a href="#mySignin" style="color: #0061ff" data-toggle="modal">Sign in</a></li>
+               <li><a href="#mySignin" style="color: #0061ff" data-toggle="modal"><i class="icon-cloud"></i>Sign in</a></li>
               </c:when>
 			  <c:otherwise>
 			  <li><a href="logout">Logout</a></li>
@@ -47,93 +52,18 @@
             <!-- Signup Modal -->
             <div id="mySignup" class="modal styled hide fade" tabindex="-1" role="dialog" aria-labelledby="mySignupModalLabel" aria-hidden="true">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">�</button>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
                 <h4 id="mySignupModalLabel">Create an <strong>account</strong></h4>
               </div>
               <div class="modal-body">
-                <%-- <form:form action="register" modelAttribute="user" method="post" class="form-horizontal">
-                  
-                  <div class="control-group">
-                    <label class="control-label" for="inputText">Email*</label>
-                    <div class="controls">
-                      <form:input type="email" path="email" placeholder="Email"/>
-                    <div class="has-error">
-					  <form:errors path="email" class="text-error"/>
-					</div>
-                    </div>
-                    
-                  </div>
-                  <div class="control-group">
-                    <label class="control-label" for="password">Password*</label>
-                    <div class="controls">
-                     <form:input type="password" path="password" placeholder="Password" /> 
-                    <div class="has-error">
-					  <form:errors path="password" class="text-error"/>
-					</div>
-					</div>
-                    
-                  </div>
-                  
-                  <div class="control-group">
-                    <label class="control-label" for="repeatepass">Re-enter Password*</label>
-                    <div class="controls">
-                     <form:input type="password" path="repeatepass" placeholder="repeatepass" /> 
-                    <div class="has-error">
-					  <form:errors path="repeatepass" class="text-error"/>
-					</div>
-                    </div>
-                    
-                  </div>
-                  
-                  <div class="control-group">
-                    <label class="control-label" for="fname">First Name*</label>
-                    <div class="controls">
-                     <form:input path="fname" placeholder="First Name" /> 
-                    <div class="has-error">
-					  <form:errors path="fname" class="text-error"/>
-					</div>
-					</div>
-                    
-                  </div>
-                  
-                  <div class="control-group">
-                    <label class="control-label" for="lname">Last Name*</label>
-                    <div class="controls">
-                     <form:input path="lname" placeholder="Last Name" /> 
-                    <div class="has-error">
-					  <form:errors path="lname" class="text-error"/>
-					</div>
-					</div>
-                    
-                  </div>
-                  
-                  <div class="control-group">
-                    <label class="control-label" for="phone">Phone*</label>
-                    <div class="controls">
-                     <form:input path="phone" placeholder="Phone" /> 
-                    <div class="has-error">
-					  <form:errors path="phone" class="text-error"/>
-					</div>
-					</div>
-                    
-                  </div>
-                  
-                  <div class="control-group">
-                    <div class="controls">
-                      <button type="submit" id="submit" class="btn btn-danger">Submit</button>
-                      <a href="login" class="btn btn-success">Cancel</a>
-                    
-                    </div>
-                    
-                  </div>
-                </form:form> --%>
+
               </div>
             </div>
             <!-- end signup modal -->
             <!-- Sign in Modal -->
             <div id="mySignin" class="modal styled hide fade" tabindex="-1" role="dialog" aria-labelledby="mySigninModalLabel" aria-hidden="true">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">�</button>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
                 <h4 id="mySigninModalLabel">Login to your <strong>account</strong></h4>
               </div>
               <div class="modal-body">
@@ -165,20 +95,20 @@
             <!-- Reset Modal -->
             <div id="myReset" class="modal styled hide fade" tabindex="-1" role="dialog" aria-labelledby="myResetModalLabel" aria-hidden="true">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">�</button>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
                 <h4 id="myResetModalLabel">Reset your <strong>password</strong></h4>
               </div>
               <div class="modal-body">
                 <form action="resetcode" class="form-horizontal" method="post">
                   <div class="control-group">
-                    <label class="control-label" for="inputResetEmail">Email</label>
+                    <label class="control-label" for="email">Email</label>
                     <div class="controls">
-                      <input type="text" name="inputResetEmail" placeholder="Email">
+                      <input type="email" name="email" placeholder="Email">
                     </div>
                   </div>
                   <div class="control-group">
                     <div class="controls">
-                      <button type="submit" class="btn">Reset password</button>
+                     <button type="submit" class="btn">Reset password</button>
                     </div>
                     <p class="aligncenter margintop20">
                       We will send instructions on how to reset your password to your inbox
@@ -187,6 +117,50 @@
                 </form>
               </div>
             </div>
+
+            <div id="reset2" class="modal styled hide fade" tabindex="-1" role="dialog" aria-labelledby="myResetModalLabel" aria-hidden="true">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                <h4 id="myResetModalLabel">Reset your <strong>password</strong></h4>
+              </div>
+              <div class="modal-body">
+                <form action="resetcode2" class="form-horizontal" method="post">
+                  <div class="control-group">
+                    <label class="control-label" for="email">Email</label>
+                    <div class="controls">
+                      <input type="email" name="email" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="code">Reset Code</label>
+                    <div class="controls">
+                      <input type="text" name="code" placeholder="Code">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="password">New Password</label>
+                    <div class="controls">
+                      <input type="password" name="password" placeholder="Password">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="pass2">Repeat password</label>
+                    <div class="controls">
+                      <input type="password" name="pass2" placeholder="Password">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <button type="submit"  class="btn">Confirm Code</button>
+                    </div>
+
+                  </div>
+                </form>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
             <!-- end reset modal -->
           </div>
         </div>

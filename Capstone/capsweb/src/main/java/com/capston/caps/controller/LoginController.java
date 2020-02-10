@@ -21,6 +21,7 @@ import com.capston.caps.service.UserService;
 import com.capston.caps.validation.DataValidation;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 @Controller
@@ -223,14 +224,38 @@ public class LoginController {
 	public String resetcode(Model model, @RequestParam String email) {
 	Users user= userService.findByEmail(email).get();
 	if(user !=null) {
-		//user.setCode(code);
+		Random random = new Random();
+		String code = String.valueOf(random.nextInt());
+
+		user.setCode(code);
 		userService.save(user);
-		webUtils.sendMail(email, "Please use this code"+888+" to reset password", "Password Reset");
-		model.addAttribute("msg", "Check you email for seset instruction");
+		webUtils.sendMail(email, "Please use this code "+code+" to reset password", "Password Reset");
+		model.addAttribute("msg", "Check you email for reset instruction");
 	}	
-	return "resetpass";
+	return "redirect:/index";
 	}
-	
+	@PostMapping("resetcode2")
+	public String resetcode2(Model model, @RequestParam String code,@RequestParam String email,@RequestParam String password,@RequestParam String
+			pass2) {
+		Users user1= userService.findByEmail(email).get();
+		if(code.equals(user1.getCode()) && user1!=null){
+		user1.setPassword(password);
+		user1.setRepeatepass(pass2);
+
+
+			userService.save(user1);
+			webUtils.sendMail(email, "Your password was changed", "Password Reset");
+			model.addAttribute("msg1", "Password was changed");
+		}
+		else{
+			System.out.println("NO");
+		}
+
+		return "index";
+	}
+
+
+
 	@GetMapping("userprofile")
 	public  String userprofile(@RequestParam int user_id,
 				Model model) {

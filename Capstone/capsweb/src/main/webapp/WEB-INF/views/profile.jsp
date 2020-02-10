@@ -84,10 +84,10 @@
           <div class="span9">
             <h4>
             <c:if test="${not emptyloggedInUser.email}">
-            <button type="button" class="btn btn-primary btn-green btn-rounded" data-toggle="modal" data-target="#addImages">
+            <button type="button" class="btn btn-primary btn-blue btn-rounded" data-toggle="modal" data-target="#addImages">
 			 <i class="fas fa-plus"> Upload Images</i> 
 			</button >
-              <button class="btn btn-primary btn-green btn-rounded"><a href="event">
+              <button class="btn btn-primary btn-blue btn-rounded"><a href="event">
                     Post Event Here!
                 </a></button>
 			</c:if>
