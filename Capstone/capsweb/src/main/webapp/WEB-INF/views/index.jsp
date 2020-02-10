@@ -24,8 +24,9 @@
   <link href="static/css/jcarousel.css" rel="stylesheet" />
   <link href="static/css/flexslider.css" rel="stylesheet" />
   <link href="static/css/style.css" rel="stylesheet" />
+    <link href="static/css/overwrite.css" rel="stylesheet" />
   <!-- Theme skin -->
-  <link href="static/skins/default.css" rel="stylesheet" />
+  <link href="static/skins/blue.css" rel="stylesheet" />
   <!-- Fav and touch icons -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png" />
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png" />
@@ -95,11 +96,11 @@
           <div class="span12">
             <div class="big-cta">
               <div class="cta-text">
-                <h3>We've worked-out <span class="highlight"><strong style="color: green">83 times</strong></span> this year! Lets grow together!</h3>
+                <h3>We've worked-out <span class="highlight"><strong>83 times</strong></span> this year! Lets grow together!</h3>
               </div>
               <div class="cta floatright">
 
-<a class="btn btn-large btn-green btn-rounded" href="register">Sign Up here</a>
+<a class="btn btn-large btn-blue btn-rounded" href="register">Sign Up here</a>
 
 
         <!-- divider -->
@@ -262,7 +263,7 @@
     </section>
     <jsp:include page="footer.jsp"/>
 
-  <a href="#" class="scrollup"><i class="icon-chevron-up icon-square icon-32 active"></i></a>
+  <a href="#" class="scrollup" style="color:green;"><i class="icon-chevron-up icon-square  icon-32 active"></i></a>
   <!-- javascript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->

@@ -25,7 +25,7 @@
   <link href="static/css/flexslider.css" rel="stylesheet" />
   <link href="static/css/style.css" rel="stylesheet" />
   <!-- Theme skin -->
-  <link href="static/skins/default.css" rel="stylesheet" />
+  <link href="static/skins/blue.css" rel="stylesheet" />
   <!-- Fav and touch icons -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png" />
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png" />

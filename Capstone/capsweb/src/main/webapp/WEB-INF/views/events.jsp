@@ -29,7 +29,7 @@
     <link href="static/css/flexslider.css" rel="stylesheet" />
     <link href="static/css/style.css" rel="stylesheet" />
     <!-- Theme skin -->
-    <link href="static/skins/default.css" rel="stylesheet" />
+    <link href="static/skins/blue.css" rel="stylesheet" />
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png" />
@@ -85,6 +85,9 @@
                 <h4><button onclick="myFunction2()">Signed Events</button>
                 ${good}
                 ${lob}
+                    ${atend}
+                    ${aeo}
+                    ${userEvents.size()}
             </h4>
 
                 <h4><button onclick="myFunction3()">All Events</button>
@@ -155,12 +158,12 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="item" items="${events}" >
-                        <c:if test="${loggedInUser.email == item.user_email}">
+                    <c:forEach var="item" items="${userEvents}" >
+
                             <tr>
 
                                 <td>
-                                        ${events.indexOf(item)+1}.
+                                        ${userEvents.indexOf(item)+1}.
                                 </td>
 
                                 <td>
@@ -175,13 +178,20 @@
                                     <a href="http://maps.google.com/maps?q=${item.street},+${item.state},+${item.zipcode}" target="_blank">
                                         Get directions</a>
                                 </td>
-                                <c:if test="${loggedInUser.email == item.user_email}">
-                                    <td>Delete</td>
-                                    <td>Update</td>
-                                    <td><a href="deleteevent?id=${item.id}" onclick="confirmed(); return false;" > <i class="icon-trash"></i></a></td>
+                                <c:if test="${userEvents.contains(item)}">
+                                    <td><form action="removeUser" method="post" class="form-horizontal">
+
+
+                                        <input type="hidden" name="event_id" value ="${item.id}"/>
+                                        <button type="submit" >Leave the event</button>
+                                    </form>
+                                    </td>
+
+
                                 </c:if>
+
                             </tr>
-                        </c:if>
+
                     </c:forEach>
 
                     </tbody>
@@ -193,6 +203,7 @@
 
                         <th>#</th>
                         <th>Event</th>
+                        <th>Total Atendies</th>
                         <th>
                             <input type="text" id="searchnow"
                                    placeholder=" Filter Events (${events.size()}) "
@@ -216,6 +227,9 @@
                                         ${item.zipcode}<br>${item.time}
 
                                 </td>
+                        <td>
+                            ${item.eventUsers.size()}
+                        </td>
                                 <td>
                                     Created by ${item.user_email}
                                 </td>
@@ -229,9 +243,28 @@
 
                             </tr>
                         </c:if>
-                        <c:if test="${loggedInUser.email != item.user_email}">
-                        <td><a href="updateevent?id=${item.id}" ><i class="icon-check">Join User</i></a></td>
+                        <c:if test="${!userEvents.contains(item)&& loggedInUser.email!=item.user_email}">
+                           <td><form action="addUser" method="post" class="form-horizontal">
+
+                            <input type="hidden" name="event_id" value ="${item.id}"/>
+                            <button type="submit" >Join Here</button>
+                            </form>
+                           </td>
                         </c:if>
+
+                            <c:if test="${userEvents.contains(item)}">
+                            <td><form action="removeUser" method="post" class="form-horizontal">
+
+
+                                <input type="hidden" name="event_id" value ="${item.id}"/>
+                                <button type="submit" >Leave the event</button>
+                            </form>
+                            </td>
+
+
+                        </c:if>
+
+
 
                     </c:forEach>
 
@@ -250,7 +283,6 @@
                 </div>
             </div>
         </div>
-        <!-- end divider -->
 
 
     </div>

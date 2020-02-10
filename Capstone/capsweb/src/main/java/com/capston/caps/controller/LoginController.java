@@ -20,6 +20,9 @@ import com.capston.caps.repository.UserRepository;
 import com.capston.caps.service.UserService;
 import com.capston.caps.validation.DataValidation;
 
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
 @Controller
 @SessionAttributes("loggedInUser")
 public class LoginController {
@@ -69,13 +72,14 @@ public class LoginController {
 	}
 	
 	@PostMapping("login")
-	public String signin(@RequestParam String email, 
-			      @RequestParam String password, Model model) {
+	public String signin(@RequestParam String email, WebRequest request,
+						 @RequestParam String password, Model model) {
 		try {
 			Users user=userService.findByEmail(email).get();
 			if(user !=null && password.equals(user.getPassword())) {
 				model.addAttribute("msg", "Welcome "+email);
-				model.addAttribute("loggedInUser", user);	
+				model.addAttribute("loggedInUser", user);
+				request.setAttribute("loggedInUser", user, WebRequest.SCOPE_SESSION);
 			}else {
 				model.addAttribute("error", "Invalid Credentials");
 				return "login";
@@ -299,9 +303,12 @@ public class LoginController {
 		return "events";
 	}
 	@GetMapping("events")
-	public String events(Model model) {
+	public String events(Model model,@SessionAttribute Users loggedInUser) {
 
+		Users user = userService.findById(loggedInUser.getUser_id()).get();
 		model.addAttribute("events", eventRepository.findAll());
+		model.addAttribute("userEvents", user.getUserEvents());
+
 
 		return "events";
 	}
@@ -329,5 +336,47 @@ public class LoginController {
 			model.addFlashAttribute("success", "Event  Updated");
 
 		return "redirect:/events";
+	}
+
+	@PostMapping("addUser")
+	public String addusers(@RequestParam long event_id,@SessionAttribute Users loggedInUser, RedirectAttributes model){
+		Event event =eventService.findById(event_id).get();
+			if(event.getEventUsers()==null){
+				event.setEventUsers(new ArrayList<>());
+			}
+			Users user = userService.findById(loggedInUser.getUser_id()).get();
+			boolean userExists = event.getEventUsers().stream()
+					.filter(usr -> usr.getUser_id() == user.getUser_id())
+					.findFirst()
+					.orElse(null) != null;
+			if(!userExists) {
+				event.getEventUsers().add(user);
+				eventService.save(event);
+			}
+		model.addFlashAttribute("atend","Event was joined");
+
+		return"redirect:/events";
+	}
+	@PostMapping("removeUser")
+	public String removeusers(@RequestParam long event_id,@SessionAttribute Users loggedInUser, RedirectAttributes model){
+		Event event1 =eventService.findById(event_id).get();
+		if(event1.getEventUsers()==null){
+			event1.setEventUsers(new ArrayList<>());
+		}
+		Users user = userService.findById(loggedInUser.getUser_id()).get();
+
+
+		boolean userExists = event1.getEventUsers().stream()
+				.filter(usr -> usr.getUser_id() != user.getUser_id())
+				.findFirst()
+				.orElse(null) != null;
+		if(!userExists) {
+			event1.getEventUsers().remove(user);
+
+			eventService.save(event1);
+		}
+		model.addFlashAttribute("aeo","You left the event");
+
+		return"redirect:/events";
 	}
 }

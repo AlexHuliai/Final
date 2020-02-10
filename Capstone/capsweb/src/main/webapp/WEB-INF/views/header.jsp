@@ -1,9 +1,8 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
 <header>
-  <div id="wrapper">
+  <div id="wrapper" >
     <!-- toggle top area -->
     <div class="hidden-top">
       <div class="hidden-top-inner container">
@@ -22,8 +21,8 @@
     </div>
       <div class="container">
         <!-- hidden top area toggle link -->
-        <div id="header-hidden-link">
-          <a href="#" class="toggle-link" title="Click me you'll get a surprise" data-target=".hidden-top"><i></i>Open</a>
+        <div id="header-hidden-link" >
+          <a href="#" class="toggle-link"  title="Click me you'll get a surprise" data-target=".hidden-top"><i></i>Open</a>
         </div>
         <!-- end toggle link -->
         <div class="row nomargin">
@@ -32,11 +31,11 @@
               <ul>              
               <c:choose>
 			  <c:when test="${empty loggedInUser}">			  
-              <li><a href="register" ><i class="icon-user"></i>Sign Up</a></li>
+              <li><a href="register" style="color: #0061ff " ><i class="icon-user"></i>Sign Up</a></li>
               
               <!-- <li><a href="#mySignup" data-toggle="modal"><i class="icon-user"></i>Sign Up</a></li>
                -->
-               <li><a href="#mySignin" data-toggle="modal">Sign in</a></li>
+               <li><a href="#mySignin" style="color: #0061ff" data-toggle="modal">Sign in</a></li>
               </c:when>
 			  <c:otherwise>
 			  <li><a href="logout">Logout</a></li>

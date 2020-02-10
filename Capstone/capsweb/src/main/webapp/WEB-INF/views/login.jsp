@@ -26,7 +26,7 @@
   <link href="static/css/flexslider.css" rel="stylesheet" />
   <link href="static/css/style.css" rel="stylesheet" />
   <!-- Theme skin -->
-  <link href="static/skins/default.css" rel="stylesheet" />
+  <link href="static/skins/blue.css" rel="stylesheet" />
   <!-- boxed bg -->
   <link id="bodybg" href="bodybg/bg1.css" rel="stylesheet" type="text/css" />
   <!-- Fav and touch icons -->
@@ -105,13 +105,13 @@
             <div class="flexslider">
               <ul class="slides">
                 <li>
-                  <img src="static/img/works/full/image-01-full.jpg" alt="" />
+                  <img src="static/img/works/full/image-01-full.jpg" style="height:400px;" alt="" />
                 </li>
                 <li>
-                  <img src="static/img/works/full/image-02-full.jpg" alt="" />
+                  <img src="static/img/works/full/image-02-full.jpg" style="height: 600px;" alt="" />
                 </li>
                 <li>
-                  <img src="static/img/works/full/image-03-full.jpg" alt="" />
+                  <img src="static/img/works/full/image-03-full.jpg" style="height: 600px;" alt="" />
                 </li>
               </ul>
             </div>

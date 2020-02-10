@@ -28,7 +28,7 @@
     <link href="static/css/flexslider.css" rel="stylesheet" />
     <link href="static/css/style.css" rel="stylesheet" />
     <!-- Theme skin -->
-    <link href="static/skins/default.css" rel="stylesheet" />
+    <link href="static/skins/blue.css" rel="stylesheet" />
     <!-- boxed bg -->
     <link id="bodybg" href="bodybg/bg1.css" rel="stylesheet" type="text/css" />
     <!-- Fav and touch icons -->
