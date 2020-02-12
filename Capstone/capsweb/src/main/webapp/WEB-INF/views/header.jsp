@@ -35,11 +35,8 @@
               <c:choose>
 			  <c:when test="${empty loggedInUser}">			  
               <li><a href="register" style="color: #0061ff " ><i class="icon-user"></i>Sign Up</a></li>
-                <li><a href="#reset2" data-dismiss="modal" aria-hidden="true" data-toggle="modal" style="color: #0061ff " ><i class="icon-lock"></i>Reset Password</a></li>
 
-              
-              <!-- <li><a href="#mySignup" data-toggle="modal"><i class="icon-user"></i>Sign Up</a></li>
-               -->
+
                <li><a href="#mySignin" style="color: #0061ff" data-toggle="modal"><i class="icon-cloud"></i>Sign in</a></li>
               </c:when>
 			  <c:otherwise>
@@ -108,7 +105,7 @@
                   </div>
                   <div class="control-group">
                     <div class="controls">
-                     <button type="submit" class="btn">Reset password</button>
+                     <button onclick="myFunction3()" type="submit" class="btn">Reset password</button>
                     </div>
                     <p class="aligncenter margintop20">
                       We will send instructions on how to reset your password to your inbox
@@ -118,44 +115,7 @@
               </div>
             </div>
 
-            <div id="reset2" class="modal styled hide fade" tabindex="-1" role="dialog" aria-labelledby="myResetModalLabel" aria-hidden="true">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                <h4 id="myResetModalLabel">Reset your <strong>password</strong></h4>
-              </div>
-              <div class="modal-body">
-                <form action="resetcode2" class="form-horizontal" method="post">
-                  <div class="control-group">
-                    <label class="control-label" for="email">Email</label>
-                    <div class="controls">
-                      <input type="email" name="email" placeholder="Email">
-                    </div>
-                  </div>
-                  <div class="control-group">
-                    <label class="control-label" for="code">Reset Code</label>
-                    <div class="controls">
-                      <input type="text" name="code" placeholder="Code">
-                    </div>
-                  </div>
-                  <div class="control-group">
-                    <label class="control-label" for="password">New Password</label>
-                    <div class="controls">
-                      <input type="password" name="password" placeholder="Password">
-                    </div>
-                  </div>
-                  <div class="control-group">
-                    <label class="control-label" for="pass2">Repeat password</label>
-                    <div class="controls">
-                      <input type="password" name="pass2" placeholder="Password">
-                    </div>
-                  </div>
-                  <div class="control-group">
-                    <div class="controls">
-                      <button type="submit"  class="btn">Confirm Code</button>
-                    </div>
 
-                  </div>
-                </form>
               </div>
             </div>
             </div>
@@ -204,3 +164,14 @@
         </div>
       </div>
     </header>
+<script>
+function myFunction3() {
+var x = document.getElementById("reset2");
+
+if (x.style.visibility === "hidden") {
+x.style.visibility = "visible";
+} else {
+x.style.display = "hidden";
+}
+}
+</script>

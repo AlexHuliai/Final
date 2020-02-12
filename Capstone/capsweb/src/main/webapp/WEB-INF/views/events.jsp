@@ -78,22 +78,21 @@
         <!-- Default table -->
         <div class="row">
             <div class="span12">
-              <h4><button onclick='myFunction();'>My Events</button>
+              <h1>
+                  <button class="btn-blue btn-rounded" onclick='myFunction();'><h4>My Events</h4></button>
               ${good}
                   ${success}
-                    ${lob}</h4>
-                <h4><button onclick="myFunction2()">Signed Events</button>
+                    ${lob}
+                  <button class="btn-blue btn-rounded" onclick="myFunction2()"><h4>Joined Events (${userEvents.size()})</h4></button>
                 ${good}
                 ${lob}
                     ${atend}
                     ${aeo}
-                    ${userEvents.size()}
-            </h4>
-
-                <h4><button onclick="myFunction3()">All Events</button>
+                <button class="btn-blue btn-rounded" onclick="myFunction3()"><h4>All Events</h4></button>
                     ${good}
                     ${lob}
-                </h4>
+
+                </h1>
                 <table id="1" style="display: none"  class="table table-striped">
                     <thead>
                     <tr>
@@ -215,7 +214,7 @@
                     </thead>
                     <tbody>
                     <c:forEach var="item" items="${events}" >
-
+                        <c:if test="${loggedInUser.email != item.user_email&&!userEvents.contains(item)}">
                             <tr>
 
                                 <td>
@@ -265,7 +264,7 @@
                         </c:if>
 
 
-
+                        </c:if>
                     </c:forEach>
 
 

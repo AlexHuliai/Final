@@ -232,8 +232,9 @@ public class LoginController {
 		webUtils.sendMail(email, "Please use this code "+code+" to reset password", "Password Reset");
 		model.addAttribute("msg", "Check you email for reset instruction");
 	}	
-	return "redirect:/index";
+	return "resetpass";
 	}
+
 	@PostMapping("resetcode2")
 	public String resetcode2(Model model, @RequestParam String code,@RequestParam String email,@RequestParam String password,@RequestParam String
 			pass2) {
