@@ -138,21 +138,23 @@
                 <nav>
                   <ul class="nav topnav">
                     <li class="dropdown">
-                      <a href="index">Home <i class="icon-angle-down"></i></a>
+                      <a style="color: darkblue" href="index">Home<i  class="icon-home"></i><br> <i class="icon-angle-down"></i></a>
                       <ul class="dropdown-menu">
-                        <li><a href="about">About</a></li>
-                        <li><a href="service">Contact</a></li>
+                        <li><a style="color: darkblue" href="about">About<i class="icon-book"></i></a></li>
+                        <li><a style="color: darkblue" href="service">Contact<i class="icon-envelope"></i></a></li>
                       </ul>
                     </li>
+
                     <li>
-                      <a href="about">About </a>
-                    </li>                  
+                      <a style="color: darkblue" href="about">About<i  class="icon-book"></i> </a>
+                    </li>
+
                     <li>
-                      <a href="service">Contact </a>
+                      <a style="color: darkblue" href="service">Contact<i class="icon-envelope"></i> </a>
                     </li>
                     <c:if test="${not empty loggedInUser}">
-                      <li><a href="users">Users</a></li>
-                      <li><a href="events">Events</a></li>
+                      <li><a style="color: darkblue" href="users">Users<i class="icon-user"></i></a></li>
+                      <li><a style="color: darkblue" href="events">Events<span class="icon-coffee"></span></a></li>
 
                     </c:if>
                   </ul>

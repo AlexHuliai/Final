@@ -124,6 +124,7 @@
                             </td>
                             <td>
                                   Created by ${item.user_email}
+
                             </td>
                             <td>
                              <a href="http://maps.google.com/maps?q=${item.street},+${item.state},+${item.zipcode}" target="_blank">

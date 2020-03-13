@@ -83,7 +83,7 @@
                   Pictures
                   </a></li>                  
                   <li class=""><a href="#three" data-toggle="tab">
-                  Contact Info My 
+                  Contact Info
                   </a></li>
                   <li class=""><a href="#two" data-toggle="tab">
                   <i class="font-icon-email"></i> Contact Me 

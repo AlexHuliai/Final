@@ -65,7 +65,7 @@
                   <p>
                   Lots of interesting and fun people are posting there future work-outs in our platform
                   </p>
-                  <a href="#" class="btn btn-theme">Join Here</a>
+                  <a href="register" class="btn btn-theme">Join Here</a>
                 </div>
               </div>
               <!-- Slide #2 caption -->
